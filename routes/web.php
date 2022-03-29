@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\SchoolController;
+use App\Http\Controllers\AuthController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -29,8 +30,10 @@ Route::get('/dashboard', function () {
 require __DIR__.'/auth.php';
 
 Route::prefix("school")->group(function(){
-    Route::get("/",[SchoolController::class,"home"]);
-    Route::match(["post","get"], "/login",[SchoolController::class,"login"]);
+    Route::get("/",[SchoolController::class,"home"])->name("school.dashboard");
+    Route::get( "/login",[SchoolController::class,"login"]);
+    Route::get( "/logout",[AuthController::class,"schoolLogout"])->name('school.logout');
+    Route::post( "/login",[AuthController::class,"schoolLogin"])->name('school.login');
 });
 // Route::resource('student',App\Http\Controllers\StudentController::class)->middleware(['auth']);
 // Route::get('/insert',[StudentController::class,"create"])->name("create");

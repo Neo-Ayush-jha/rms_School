@@ -33,9 +33,9 @@
                                     <td>{{$item->est_year}}</td>
                                     <td>{{$item->created_at}}</td>
                                     <td>
-                                        <a href="" class="btn btn-danger">X</a>
-                                        <a href="" class="btn btn-warning">edit</a>
-                                        <a href="" class="btn btn-info">View</a>
+                                        <a href="" class="btn btn-danger text-small p-1">X</a>
+                                        <a href="" class="btn btn-warning text-small p-1"><i class="bi bi-pen"></i></a>
+                                        <a href="" class="btn btn-info text-small p-1"><i class="bi bi-eye"></i></a>
                                     </td>
                                 </tr>
                             @endforeach

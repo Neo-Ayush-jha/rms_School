@@ -6,7 +6,7 @@
                 <div class="card">
                     <div class="card-body">
                         <h5>School Login</h5>
-                        <form action="" method="post">
+                        <form action="{{route('school.login')}}" method="post">
                             @csrf
                             <div class="mb-3">
                                 <label for="">Email</label>
