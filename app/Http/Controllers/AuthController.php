@@ -31,7 +31,7 @@ class AuthController extends Controller
     }
 
     function schoolLogout(Request $request){
-        $request->session()->destory();
+        $request->session()->destroy();
         return redirect()->route('school.login');
     }
 }

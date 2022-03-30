@@ -17,7 +17,7 @@ class SchoolController extends Controller
     public function index()
     {
         $data['schools'] = School::all();
-        return view("admin/manageSchool",$data);
+        return view("admin/ ",$data);
     }
 
     public function home(){
@@ -39,6 +39,13 @@ class SchoolController extends Controller
     public function create()
     {
         return view("admin/insertSchool");
+    }
+
+    public function insertResult(Request $request){
+        if($request->method()=="POST"){
+            
+        }
+        return view("school/insertResult");
     }
 
     /**

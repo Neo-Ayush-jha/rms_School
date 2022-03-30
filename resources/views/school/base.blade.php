@@ -26,6 +26,7 @@
                 </li>
               
             </ul>
+        </div>
         </nav>
       @section('content')
           
