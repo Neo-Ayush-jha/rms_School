@@ -17,8 +17,8 @@ use App\Http\Controllers\AuthController;
 */
 
 
-Route::prefix('admin')->group(function(){
-    Route::get("/",[AdminController::class , "home"])->middleware(['auth'])->name("admin.dashboard");
+Route::prefix('admin')->middleware(['auth'])->group(function(){
+    Route::get("/",[AdminController::class , "home"])->name("admin.dashboard");
     Route::resource("school",App\Http\Controllers\SchoolController::class);   
     Route::resource("student",App\Http\Controllers\StudentController::class);   
 });
@@ -29,12 +29,12 @@ Route::get('/dashboard', function () {
 
 require __DIR__.'/auth.php';
 
+Route::match( ["get","post"],"/school/login",[SchoolController::class,"login"])->name('school.login');
 Route::prefix("school")->group(function(){
     Route::get("/",[SchoolController::class,"home"])->name("school.dashboard")->middleware(['schoolAuth']);
-    Route::match(["get","post"] ,"/insertResult",[SchoolController::class,"insertResult"])->name("school.insertResult")->middleware(['schoolAuth']);
-    Route::get( "/login",[SchoolController::class,"login"]);
+    Route::match(["get","post"] ,"/insertResult",[SchoolController::class,"insertResult"])->name("school.insertResult");
     Route::get( "/logout",[AuthController::class,"schoolLogout"])->name('school.logout');
-    Route::post( "/login",[AuthController::class,"schoolLogin"])->name('school.login');
+    // Route::post( "/login",[AuthController::class,"schoolLogin"])->name('school.login');
 });
 // Route::resource('student',App\Http\Controllers\StudentController::class)->middleware(['auth']);
 // Route::get('/insert',[StudentController::class,"create"])->name("create");

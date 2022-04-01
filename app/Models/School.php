@@ -8,4 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class School extends Model
 {
     use HasFactory;
+    function user(){
+        return $this->hasOne(User::class,"id","user_id");
+    }
 }
