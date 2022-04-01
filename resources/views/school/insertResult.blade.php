@@ -70,7 +70,7 @@
                             @endforeach
                             </div>
                             <div class="mb-3">
-                                <input type="submit" name="submit" class="btn w-100 btn-success">
+                                <input type="submit" name="submit" class="btn w-100 btn-success text-dark">
                             </div>
                         </form>
                     </div>
